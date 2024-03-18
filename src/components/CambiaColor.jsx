@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
 
-function CambiaColor() {
-  const [color, setColor] = useState('#FFFFFF'); 
+const CambiaColor = ({ colorInicial }) => {
+  const [color, setColor] = useState(colorInicial);
 
   const cambiarColor = () => {
-  
-    const nuevoColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+ 
+    const nuevoColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     setColor(nuevoColor);
   };
 
   return (
-   <div className={`flex justify-center items-center h-96 bg-[${color}] bg-[#000000]`}>
     <div
-      style={{ backgroundColor: color, width: '1300px', height: '300px', cursor: 'pointer', textAlign: 'center' }}
+      style={{
+        width: '1350px',
+        height: '500px',
+        backgroundColor: color,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+        borderRadius: '5px',
+       margin:'5',
+       
+      }}
       onClick={cambiarColor}
     >
-      <h2 style={{ textAlign: 'center', paddingTop: '80px', fontFamily:'sans-serif' }}>Haz clic para cambiar el color</h2>
-    </div>
+      <h2 className='text-[50px] font-bold '>Cambia de Color</h2>
     </div>
   );
-}
+};
 
 export default CambiaColor;

@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 
-function InputControlado() {
+const InputControlado = ({ placeholderText }) => {
+  const [inputValue, setInputValue] = useState('');
 
-  const [inputValue, setInputValue] = useState('5');
-
- 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
   return (
-    <div>
-     
+    <div className='border-4 border-black grid justify-center w-[300px] p-5 m-5 bg-black text-black'>
       <input
         type="text"
+        placeholder={placeholderText}
         value={inputValue}
         onChange={handleInputChange}
       />
-
-      <div>Valor actual del input: {inputValue}</div>
+      <p className='text-white'>Valor actual del input: {inputValue}</p>
     </div>
   );
-}
+};
 
 export default InputControlado;
